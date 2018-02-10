@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:orientation="horizontal"
+    android:paddingTop="16dp">
+
+    <ImageView
+        android:id="@+id/catalog_item_image"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_add_shopping_cart_black_24dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="item name"
+            android:paddingLeft="40dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#2B3D4D"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_shopping_cart_black_24dp"
+                android:tint="@color/colorAccent"
+
+                />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/price"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#AEB6BD" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/item_quantity"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#AEB6BD"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout><!--parent layout-->

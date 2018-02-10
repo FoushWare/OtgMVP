@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flipboard.bottomsheet.BottomSheetLayout android:id="@+id/bottomsheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#f2f2f2"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/cover" />
+
+
+
+
+        <LinearLayout
+            android:id="@+id/btns"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_below="@id/cover"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:padding="5dp"
+                android:background="#ffffff">
+
+                <TableRow>
+                    <LinearLayout
+                        android:id="@+id/buttonProfile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/face" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Profile" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/buttonBalance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/money" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Balance" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/buttonHistory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/history_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="History"/>
+
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/buttonSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_columnWeight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/search" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Search" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/buttonSignOut"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClick"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/logout" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Log out" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/buttonShopping"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_columnWeight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/info" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="About" />
+
+                    </LinearLayout>
+
+                </TableRow>
+
+            </TableLayout>
+
+
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/btns">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="3dp"
+                    android:text="Recommendations"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorPrimary"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/QRBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:onClick="onClick"
+            app:fabSize="normal"/>
+    </RelativeLayout>
+
+
+
+</com.flipboard.bottomsheet.BottomSheetLayout>

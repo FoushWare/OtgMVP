@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "project_number": "884218285632",
+    "firebase_url": "https://otgstore-e63e1.firebaseio.com",
+    "project_id": "otgstore-e63e1",
+    "storage_bucket": "otgstore-e63e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884218285632:android:8c131cfd5755dc47",
+        "android_client_info": {
+          "package_name": "com.example.tom.otgstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884218285632-lbafc3bqmu6cudgbcjd3bmgdb3fv53ot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tom.otgstore",
+            "certificate_hash": "0bb05ed39d5c6a7ddaeec8f926f45b88640e0806"
+          }
+        },
+        {
+          "client_id": "884218285632-7o51g0veo83tlugvb7vkh687115ta60u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tom.otgstore",
+            "certificate_hash": "2b8cd937eeee9b16d75a2021d4a3863e5508fc11"
+          }
+        },
+        {
+          "client_id": "884218285632-7f0ur7nffb31h3h14kot9kp1keh4qu3a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tom.otgstore",
+            "certificate_hash": "2f392a7b93b828131754208d5188fd12b01639ce"
+          }
+        },
+        {
+          "client_id": "884218285632-h604rjiejpnpjeuac4eg9g5j70ts2bib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1mTVsO5MrM-2ic6S-cmTpFA3Eh7EFMUs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884218285632-h604rjiejpnpjeuac4eg9g5j70ts2bib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884218285632:android:7bf8d4664e08a58c",
+        "android_client_info": {
+          "package_name": "com.example.foush.otgmvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884218285632-h604rjiejpnpjeuac4eg9g5j70ts2bib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1mTVsO5MrM-2ic6S-cmTpFA3Eh7EFMUs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

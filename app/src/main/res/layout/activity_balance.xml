@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.Balance.BalanceActivity">
+    <!--LinearLayout for the title-->
+
+    <!--LinearLayout for the Add balance-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="35dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currentbalance"
+            android:textAlignment="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_weight="0"
+            android:textColor="@color/colorAccent"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="125 L.E"
+        android:textSize="18dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/currentCredit"
+        android:layout_height="wrap_content"
+        android:text="Add Credit:"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"/>
+
+    <!--card number-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        >
+
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/cardNumbertxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Card Number"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:hint="@string/cardnumber"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/colorAccent"
+        android:textColor="#ffff"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textStyle="bold"
+        />
+
+
+</LinearLayout>
+    <!--End of the parent-->

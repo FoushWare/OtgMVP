@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:orientation="vertical"
+    tools:context=".ui.Profile.ProfileActivity">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="#f2f3f4">
+
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+
+            android:src="@drawable/porf"
+
+
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:background="#f2f3f4">
+
+
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#fbfcfc">
+
+            <ImageView
+                android:id="@+id/pic3"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+
+                android:src="@drawable/nam"
+
+
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="0dp"
+                android:paddingLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user name"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="18dp"
+                    android:background="#fdfefe"
+                    android:id="@+id/user_name_text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="edit user name and password"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="14dp"
+                    android:textColor="#2874a6"
+                    android:background="#fdfefe"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:background="#fbfcfc">
+
+            <ImageView
+                android:id="@+id/pic4"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+
+                android:src="@drawable/phon"
+
+
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="0dp"
+                android:paddingLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop"/>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0100 000 0000"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="20dp"
+                    android:background="#fdfefe"
+                    android:id="@+id/phone_text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="edit phone number"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="14dp"
+                    android:textColor="#2874a6"
+                    android:background="#fdfefe"/>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:background="#fbfcfc">
+
+            <ImageView
+                android:id="@+id/pic5"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+
+                android:src="@drawable/mail"
+
+
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="0dp"
+                android:paddingLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop"/>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xxxx@gmail.com"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="20dp"
+                    android:background="#fdfefe"
+                    android:id="@+id/email_text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="edit e-mail"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="14dp"
+                    android:textColor="#2874a6"
+                    android:background="#fdfefe"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:background="#fbfcfc">
+
+            <ImageView
+                android:id="@+id/pic6"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+
+                android:src="@drawable/mon"
+
+
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="0dp"
+                android:paddingLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop"/>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100 L.E"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="20dp"
+                    android:background="#fdfefe"
+                    android:id="@+id/credit_text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="add credit"
+
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="14dp"
+                    android:textColor="#2874a6"
+                    android:background="#fdfefe"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="#f2f3f4">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

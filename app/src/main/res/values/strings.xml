@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">OTG-Store</string>
+    <string name="signup">Sign Up</string>
+    <string name="signout">Sign Out</string>
+    <string name="balance">Balance</string>
+    <string name="transactions">Transactions</string>
+    <string name="profile">profile</string>
+    <string name="login">Login</string>
+    <string name="history">History</string>
+    <string name="userbalance">Your Balance</string>
+    <string name="currentbalance">Current Credit</string>
+    <string name="cardnumber">Enter the Card number</string>
+    <string name="name">Name</string>
+    <string name="username">UserName</string>
+    <string name="mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="price">Price</string>
+    <string name="item_quantity">quantity</string>
+    <string name="shopping">Shopping</string>
+    <string name="testphoto">testPhoto</string>
+    <string name="testtext">testtext</string>
+    <string name="send_button_label">send</string>
+    <string name="submit">Submit</string>
+    <string name="history_no_data">There is No data</string>
+</resources>

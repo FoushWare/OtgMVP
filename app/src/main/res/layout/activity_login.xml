@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".ui.Login.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/mailtxt"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Email"
+            android:hint="Email Address"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/passwordtxt"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Password"
+            android:hint="Password"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/login"
+        android:background="@color/colorAccent"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:textAppearance="?android:textAppearanceMedium"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="@string/signup"
+        />
+</LinearLayout>

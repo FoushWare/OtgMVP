@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.foush.otgmvp"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    //noinspection GradleCompatible
+    compile 'com.android.support:design:26.0.0'
+    compile 'com.android.support:appcompat-v7:26.0.0'
+
+
+    //FCM cloud Messaging
+    //noinspection GradleCompatible
+    //butterknif
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+    //glide image loading and caching library
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    //retrofit
+    compile'com.squareup.retrofit2:retrofit:2.3.0'
+    compile'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    //Realtime dependence Database
+    //Authentication firebase
+    //firebase cloud Messaging
+    //Storage firebase
+    //FirebaseUi
+    //glide image loading and caching library
+    compile 'com.android.support:design:26.0.0'
+    compile 'com.android.support:appcompat-v7:26.0.0'
+    compile 'com.google.firebase:firebase-messaging:11.4.0'
+    compile 'com.android.support:customtabs:26.0.0'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.flipboard:bottomsheet-core:1.4.3'
+    compile 'com.google.android.gms:play-services:11.4.0'
+}
+// Apply the Google Services plugin. Make sure to add the google-services.json file in the app
+// folder. You download it from the Firebase console
+apply plugin: 'com.google.gms.google-services'
