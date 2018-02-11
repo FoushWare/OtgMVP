@@ -27,6 +27,12 @@ public class DataManager {
     public Boolean getLoggedInMode(){
         return mhsaredPrefsHelper.getLoggedInMode();
     }
+    public void saveToken(String token){
+        mhsaredPrefsHelper.putToken(token);
+    }
+    public String getToken(){
+        return mhsaredPrefsHelper.getToken();
+    }
 
 
 

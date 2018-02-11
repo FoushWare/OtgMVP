@@ -49,6 +49,7 @@
 
 
     <Button
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -61,6 +62,7 @@
 
 
     <TextView
+        android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -69,5 +71,6 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="@string/signup"
+
         />
 </LinearLayout>

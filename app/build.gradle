@@ -43,6 +43,7 @@ dependencies {
     compile'com.squareup.retrofit2:retrofit:2.3.0'
     compile'com.squareup.retrofit2:converter-gson:2.3.0'
 
+
     //Realtime dependence Database
     //Authentication firebase
     //firebase cloud Messaging
@@ -59,6 +60,9 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.flipboard:bottomsheet-core:1.4.3'
     compile 'com.google.android.gms:play-services:11.4.0'
+    //Retrofit loggin in the logcat
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
 }
 // Apply the Google Services plugin. Make sure to add the google-services.json file in the app
 // folder. You download it from the Firebase console

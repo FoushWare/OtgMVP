@@ -12,6 +12,7 @@ public class SharedPrefsHelper {
     //name the sharedPreference
     public static final String MY_PREFS="MY_APP";
     public static final String MY_EMAIL="EMAIL";
+    public static final String MY_TOKEN="TOKEN";
 
 
 
@@ -31,12 +32,17 @@ public class SharedPrefsHelper {
         return msharedPreferences.getString(MY_EMAIL,null);
     }
     public void setLoggedInMode(Boolean loggedInMode){
-        msharedPreferences.edit().putBoolean("IS_LOGEED_IN",loggedInMode);
+        msharedPreferences.edit().putBoolean("IS_LOGGED_IN",loggedInMode);
     }
     public Boolean getLoggedInMode(){
         return msharedPreferences.getBoolean("IS_LOGGED_IN",false);
     }
-
+    public void putToken(String token){
+        msharedPreferences.edit().putString(MY_TOKEN,token);
+    }
+    public String getToken(){
+        return msharedPreferences.getString(MY_TOKEN,null);
+    }
 
 
 

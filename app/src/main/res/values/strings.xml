@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OTG-Store</string>
+    <string name="app_name">otgMvp</string>
     <string name="signup">Sign Up</string>
     <string name="signout">Sign Out</string>
     <string name="balance">Balance</string>

@@ -1,5 +1,6 @@
 package com.example.foush.otgmvp.ui.Signup;
 
+import com.example.foush.otgmvp.models.User;
 import com.example.foush.otgmvp.ui.Base.MvpView;
 
 /**
@@ -7,5 +8,9 @@ import com.example.foush.otgmvp.ui.Base.MvpView;
  */
 
 public interface SignUpMvpView extends MvpView {
+    void initView();
+    void onSignUpClick();
+    void RequestApi(User user);
+    void openLogInActivity();
 
 }

@@ -95,13 +95,20 @@
 
 
 
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fabSize="normal"
+        <Button
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:src="@android:drawable/ic_menu_camera"/>
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/signup"
+            android:background="@color/colorAccent"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"/>
+
 
     </RelativeLayout>
 

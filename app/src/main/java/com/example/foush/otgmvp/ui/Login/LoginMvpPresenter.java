@@ -5,4 +5,5 @@ package com.example.foush.otgmvp.ui.Login;
  */
 
 public interface LoginMvpPresenter<V extends LoginMvpView> {
+    void startSignIn(String email,String token);
 }

@@ -13,5 +13,13 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V> imp
     }
 
 
+    @Override
+    public void startSignIn(String email,String token) {
+        getDataManager().saveEmail(email);
+        getDataManager().setLoggedIn();
+        getDataManager().saveToken(token);
+        getMvpView().openMainActivity();
 
+
+    }
 }

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.foush.otgmvp.R;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
-import com.example.foush.otgmvp.ui.Login.TransactionMvpView;
+import com.example.foush.otgmvp.ui.Transactions.TransactionMvpView;
 import com.example.foush.otgmvp.ui.Main.*;
 import com.example.foush.otgmvp.utils.CommonUtils;
 import com.google.firebase.database.Transaction;

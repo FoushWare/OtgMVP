@@ -18,9 +18,6 @@ public class SplashPresenter <V extends SplashMvpView>extends BasePresenter<V> i
     public void DecideNextActivity() {
         //check if the user is logged in OR Not
 
-
-
-
         //if logged in {open MainActivity}
         if(getDataManager().getLoggedInMode()){
             getMvpView().openMainActivity();
