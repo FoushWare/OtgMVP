@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
-    private static final String BASE_URL = "https://api.github.com/";
+    private static final String BASE_URL = "http://www.mommmmom.esy.es/";
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()

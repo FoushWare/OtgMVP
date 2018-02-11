@@ -23,10 +23,16 @@ import com.example.foush.otgmvp.ui.Signup.SignUpActivity;
 import com.example.foush.otgmvp.utils.CommonUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import org.json.JSONObject;
+
+import java.lang.annotation.Annotation;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Converter;
 import retrofit2.Response;
 
 /**
@@ -126,35 +132,68 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
         ApiHelper api= ServiceGenerator.createService(ApiHelper.class);
         Call<SignInResponse> call=api.SignInUser(user);
 
+
         call.enqueue(new Callback<SignInResponse>() {
             @Override
             public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
-                dialog.dismiss();
-                if(response.body().error=="0"){
-
-                    Toast.makeText(LoginActivity.this,"Signed up successfully"+response.body().msg, Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    // Do your success stuff...
+                    Toast.makeText(LoginActivity.this, "login successfully" , Toast.LENGTH_SHORT).show();
                     //save the user's session and save token to the session
-                    mLoginPresenter.startSignIn(user.email,response.body().token);
+                    mLoginPresenter.startSignIn(user.email, response.body().token);
 
+
+
+                } else {
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(LoginActivity.this, jObjError.getString("msg"), Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
                 }
-                if(response.body().error=="1"){
-                    dialog.dismiss();
-                    Toast.makeText(LoginActivity.this,"Server Error:"+response.body().msg, Toast.LENGTH_SHORT).show();
-
-                }
-
-
             }
 
             @Override
             public void onFailure(Call<SignInResponse> call, Throwable t) {
-                dialog.dismiss();
-                Toast.makeText(LoginActivity.this, "unknown problem", Toast.LENGTH_SHORT).show();
+                //DO NETWORK ERROR HANDLING HERE
 
             }
         });
 
 
+        /*
+        call.enqueue(new Callback<SignInResponse>() {
+            @Override
+            public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
+                dialog.dismiss();
+                if (response.isSuccessful()) {
+
+                        Toast.makeText(LoginActivity.this, "Signed up successfully" , Toast.LENGTH_SHORT).show();
+                        //save the user's session and save token to the session
+                        mLoginPresenter.startSignIn(user.email, response.body().token);
+
+                }else {
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(LoginActivity.this, jObjError.getString("msg"), Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SignInResponse> call, Throwable t) {
+                dialog.dismiss();
+                // NETWORK ERROR HANDLING HERE
+                Toast.makeText(LoginActivity.this, "unknown problem", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+*/
 
 
     }

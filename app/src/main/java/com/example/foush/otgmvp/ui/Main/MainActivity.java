@@ -16,5 +16,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 }

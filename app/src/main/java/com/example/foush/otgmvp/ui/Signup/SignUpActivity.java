@@ -23,6 +23,8 @@ import com.example.foush.otgmvp.ui.Main.MainActivity;
 import com.example.foush.otgmvp.utils.CommonUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -134,16 +136,19 @@ public class SignUpActivity extends BaseActivity implements SignUpMvpView {
             @Override
             public void onResponse(Call<MainResponse> call, Response<MainResponse> response) {
                  dialog.dismiss();
-                if(response.body().error=="0"){
 
+                if(response.isSuccessful()) {
                     Toast.makeText(SignUpActivity.this,"Signed up successfully"+response.body().msg, Toast.LENGTH_LONG).show();
                     //save the user's session
                     mSignUpPresenter.startSignUp(user.email);
-                }
-                else if(response.body().error=="1"){
-                    dialog.dismiss();
-                    Toast.makeText(SignUpActivity.this,"Server Error:"+response.body().msg, Toast.LENGTH_LONG).show();
 
+                }else {
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Toast.makeText(SignUpActivity.this, jObjError.getString("msg"), Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
                 }
 
 
