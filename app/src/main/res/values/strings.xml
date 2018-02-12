@@ -23,4 +23,7 @@
     <string name="send_button_label">send</string>
     <string name="submit">Submit</string>
     <string name="history_no_data">There is No data</string>
+    <string name="saved_message">Image Saved at %1$s</string>
+    <string name="error">Error finding image</string>
+    <string name="imageview_description">The imageview that contains the  picture</string>
 </resources>

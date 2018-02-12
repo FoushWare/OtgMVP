@@ -16,6 +16,13 @@
 
 package com.example.foush.otgmvp.utils;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,6 +31,8 @@ import java.util.regex.Pattern;
  */
 
 public class CommonUtils {
+    public static int REQUEST_STORAGE_PERMISSION = 90;
+
 
     public static boolean isEmailValid(String email) {
         Pattern pattern;
@@ -46,5 +55,26 @@ public class CommonUtils {
         matcher = pattern.matcher(password);
         return matcher.matches();
     }
+
+
+
+    public static boolean checkCameraPermission(Context context) {
+        // Check for the external storage permission
+        if (ContextCompat.checkSelfPermission(context,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // If you do not have permission, request it
+            ActivityCompat.requestPermissions((Activity) context,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_STORAGE_PERMISSION);
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+
 
 }

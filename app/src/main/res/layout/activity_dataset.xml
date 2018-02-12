@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    android:weightSum="9" >
+    <TextView
+        android:text="please take 3 photos"
+        android:id="@+id/title"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+
+
+
+    <TableRow  >
+
+        <Button
+            android:id="@+id/pic1"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            style="@style/button"
+
+
+            android:text="1" />
+
+        <Button
+            android:id="@+id/pic2"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            style="@style/button"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/pic3"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            style="@style/button"
+
+            android:text="3" />
+    </TableRow>
+
+
+    <android.support.design.widget.CheckableImageButton
+        android:src="@drawable/ic_cloud_upload_teal_400_24dp"
+        android:id="@+id/uploadButton"
+        android:padding="15dp"
+        android:visibility="gone"
+        android:text="upload Now"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/view_margin"
+            android:background="#FFFFFF"
+            android:contentDescription="@string/imageview_description"
+            android:scaleType="fitStart" />
+
+    </LinearLayout>
+
+
+</TableLayout>
