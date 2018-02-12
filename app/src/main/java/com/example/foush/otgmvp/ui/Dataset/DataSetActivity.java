@@ -105,7 +105,7 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     private static final int flagPic1 = 1;
     private static final int flagPic2 = 2;
     private static final int flagPic3 = 3;
-    private static final String FILE_PROVIDER_AUTHORITY = "com.example.android.fileproviderv3";
+    private static final String FILE_PROVIDER_AUTHORITY = "com.example.android.fileproviderv4";
     private static final String TAG = MainActivity.class.getSimpleName();
     private static Uri photoURI;
     private String mTempPhotoPath;
