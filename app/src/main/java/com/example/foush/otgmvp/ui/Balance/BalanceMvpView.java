@@ -7,5 +7,10 @@ import com.example.foush.otgmvp.ui.Base.MvpView;
  */
 
 public interface BalanceMvpView extends MvpView {
+    void  initView();
+    void  setUpWindowAnimations();
+    void onSubmit(String cardNumber);
+    void updateUI(String credit);
+    void Error();
 
 }

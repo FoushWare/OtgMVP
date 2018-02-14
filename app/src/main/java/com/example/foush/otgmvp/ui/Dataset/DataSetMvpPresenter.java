@@ -1,5 +1,7 @@
 package com.example.foush.otgmvp.ui.Dataset;
 
+import android.graphics.Bitmap;
+
 import com.example.foush.otgmvp.ui.Dataset.DataSetMvpView;
 
 /**
@@ -7,5 +9,5 @@ import com.example.foush.otgmvp.ui.Dataset.DataSetMvpView;
  */
 
 public interface DataSetMvpPresenter<V extends DataSetMvpView> {
-
+    void savingAndZipping(String mTempPhotoPath, Bitmap croppedBitmap,int flag,int count);
 }

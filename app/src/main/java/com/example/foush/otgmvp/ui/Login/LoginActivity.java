@@ -137,8 +137,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
             @Override
             public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
                 if (response.isSuccessful()) {
+
                     // Do your success stuff...
-                    Toast.makeText(LoginActivity.this, "login successfully" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, ""+response.body().msg , Toast.LENGTH_SHORT).show();
                     //save the user's session and save token to the session
                     mLoginPresenter.startSignIn(user.email, response.body().token);
 
@@ -168,11 +169,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
             public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
                 dialog.dismiss();
                 if (response.isSuccessful()) {
-
                         Toast.makeText(LoginActivity.this, "Signed up successfully" , Toast.LENGTH_SHORT).show();
                         //save the user's session and save token to the session
                         mLoginPresenter.startSignIn(user.email, response.body().token);
-
                 }else {
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
@@ -180,19 +179,15 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
                     } catch (Exception e) {
                         Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-
                 }
             }
-
             @Override
             public void onFailure(Call<SignInResponse> call, Throwable t) {
                 dialog.dismiss();
                 // NETWORK ERROR HANDLING HERE
                 Toast.makeText(LoginActivity.this, "unknown problem", Toast.LENGTH_SHORT).show();
-
             }
         });
-
 */
 
 
@@ -201,9 +196,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void initView() {
-         signup=findViewById(R.id.signup);
-         login=findViewById(R.id.login);
-         mailtxt=findViewById(R.id.mailtxt);
+        signup=findViewById(R.id.signup);
+        login=findViewById(R.id.login);
+        mailtxt=findViewById(R.id.mailtxt);
         passwordtxt=findViewById(R.id.passwordtxt);
 
     }

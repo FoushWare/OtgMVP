@@ -7,31 +7,31 @@ import com.example.foush.otgmvp.data.SharedPrefsHelper;
  */
 
 public class DataManager {
-    SharedPrefsHelper mhsaredPrefsHelper;
+    SharedPrefsHelper msharedPrefsHelper;
     public DataManager(SharedPrefsHelper sharedPrefsHelper){
-        mhsaredPrefsHelper=sharedPrefsHelper;
+        msharedPrefsHelper=sharedPrefsHelper;
     }
 
     public void clear(){
-        mhsaredPrefsHelper.clear();
+        msharedPrefsHelper.clear();
     }
     public void saveEmail(String email){
-        mhsaredPrefsHelper.putEmail(email);
+        msharedPrefsHelper.putEmail(email);
     }
     public String getEmail(){
-        return mhsaredPrefsHelper.getEmail();
+        return msharedPrefsHelper.getEmail();
     }
     public void setLoggedIn(){
-        mhsaredPrefsHelper.setLoggedInMode(true);
+        msharedPrefsHelper.setLoggedInMode(true);
     }
     public Boolean getLoggedInMode(){
-        return mhsaredPrefsHelper.getLoggedInMode();
+        return msharedPrefsHelper.getLoggedInMode();
     }
     public void saveToken(String token){
-        mhsaredPrefsHelper.putToken(token);
+        msharedPrefsHelper.putToken(token);
     }
     public String getToken(){
-        return mhsaredPrefsHelper.getToken();
+        return msharedPrefsHelper.getToken();
     }
 
 

@@ -21,6 +21,7 @@ import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.otgMvp;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Dataset.DataSetMvpView;
+import com.example.foush.otgmvp.ui.Login.LoginPresenter;
 import com.example.foush.otgmvp.ui.Main.*;
 import com.example.foush.otgmvp.utils.CommonUtils;
 import com.example.foush.otgmvp.utils.*;
@@ -100,8 +101,7 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     @BindView(R.id.pic3)
     Button pic3;
 
-    @BindView(R.id.uploadButton)
-    CheckableImageButton uploadButton;
+
     private static final int flagPic1 = 1;
     private static final int flagPic2 = 2;
     private static final int flagPic3 = 3;
@@ -126,12 +126,32 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     float x2=0;
     float y1=0;
     float y2=0;
+    DataManager mDataManager;
+    DataSetPresenter mDataSetPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dataset);
 
+        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataSetPresenter = new DataSetPresenter(mDataManager);
+        mDataSetPresenter.onAttach(this);
+
+        initView();
+
+
+
+
+
+
+
+
+
+    }
+
+    @Override
+    public void initView() {
         ButterKnife.bind(this);
         /**
          * Glide Bitmap Pool is a memory management library for reusing the bitmap memory.
@@ -142,16 +162,9 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
          */
         GlideBitmapPool.initialize(10 * 1024 * 1024); // 10mb max memory size
         /*init the progress bar for the upload zip file part*/
-
-
-
-
-
-
-
     }
 
-    @OnClick({R.id.pic1, R.id.pic2, R.id.pic3, R.id.uploadButton})
+    @OnClick({R.id.pic1, R.id.pic2, R.id.pic3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.pic1:
@@ -173,13 +186,13 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
                     launchCamera(flagPic3);
                 }
                 break;
-            case R.id.uploadButton:
-                    uploadZipFile(BitmapUtils.storageDir + ".zip");
-                break;
+
                 default:
                     Toast.makeText(this, "fuck you", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
 
     /**
@@ -293,29 +306,12 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
                 Bitmap croppedBitmap = Bitmap.createBitmap(tempBitmap,(int)x1,(int) y1,(int)x2-(int)x1,(int)y2-(int)y1);
 
                 imageView.setImageDrawable(new BitmapDrawable(getResources(), croppedBitmap));
+                //Presenter role
 
-                //imageView.setImageDrawable(new BitmapDrawable(getResources(), tempBitmap));
-
-                /**save the image and get the images path*/
-
-                // Delete the temporary image file
-                BitmapUtils.deleteImageFile(this, mTempPhotoPath);
-                // Save the image
-                String imagPath = BitmapUtils.saveImage(this, croppedBitmap);
-                Log.d(TAG, "processAndSetImage: image path is " + imagPath);
+                mDataSetPresenter.savingAndZipping(mTempPhotoPath,croppedBitmap,flag,count);
 
 
-                //the life is successful for this button make it's visibility gone
-                buttonsGone(flag);
-                // uploadZipToServer();
 
-                if (count == 3) {
-                  //  userZipPhotos();
-                    Toast.makeText(this, "it's ok foush", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(DataSetActivity.this,MainActivity.class);
-                    startActivity(intent);
-
-                }
 
 
 
@@ -371,33 +367,16 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
             case flagPic1:
                 pic1.setVisibility(View.GONE);
                 ++count;
-                if (pic2.getVisibility() == View.GONE && pic3.getVisibility() == View.GONE) {
-                    uploadButton.setVisibility(View.VISIBLE);
-
-                }
 
                 break;
             case flagPic2:
                 pic2.setVisibility(View.GONE);
                 ++count;
 
-                if (pic3.getVisibility() == View.GONE && pic1.getVisibility() == View.GONE) {
-                    uploadButton.setVisibility(View.VISIBLE);
-
-                }
-
                 break;
             case flagPic3:
                 pic3.setVisibility(View.GONE);
                 ++count;
-
-                if (pic2.getVisibility() == View.GONE && pic1.getVisibility() == View.GONE) {
-                    uploadButton.setVisibility(View.VISIBLE);
-
-
-
-                }
-
                 break;
 
         }
@@ -423,6 +402,17 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     }
 
     @Override
+    public void saveImageAndPath(String mTempPhotoPath, Bitmap croppedBitmap) {
+        /**save the image and get the images path*/
+
+        // Delete the temporary image file
+        BitmapUtils.deleteImageFile(this, mTempPhotoPath);
+        // Save the image
+        String imagPath = BitmapUtils.saveImage(this, croppedBitmap);
+        Log.d(TAG, "processAndSetImage: image path is " + imagPath);
+    }
+
+    @Override
     public void userZipPhotos() {
 //zip all the photos in the file
         ZipUtil.pack(new File(String.valueOf(BitmapUtils.storageDir)), new File(String.valueOf(BitmapUtils.storageDir)+".zip"));
@@ -434,5 +424,6 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
 
     @Override
     public void uploadZipFile(final String zipFile) {
+
     }
 }

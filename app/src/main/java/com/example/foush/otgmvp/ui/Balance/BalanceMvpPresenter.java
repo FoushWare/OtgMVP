@@ -7,5 +7,7 @@ import com.example.foush.otgmvp.ui.Balance.BalanceMvpView;
  */
 
 public interface BalanceMvpPresenter<V extends BalanceMvpView> {
-
+    void  slideAnimation();
+    void  requestCredit(String cardNumber);
+    void updateUI(String currentCredit);
 }

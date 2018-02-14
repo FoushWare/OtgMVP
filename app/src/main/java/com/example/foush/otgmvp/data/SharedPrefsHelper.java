@@ -23,22 +23,22 @@ public class SharedPrefsHelper {
 
     }
     public void clear(){
-        msharedPreferences.edit().clear();
+        msharedPreferences.edit().clear().apply();
     }
     public void putEmail(String email){
-        msharedPreferences.edit().putString(MY_EMAIL,email);
+        msharedPreferences.edit().putString(MY_EMAIL,email).apply();
     }
     public String getEmail(){
         return msharedPreferences.getString(MY_EMAIL,null);
     }
     public void setLoggedInMode(Boolean loggedInMode){
-        msharedPreferences.edit().putBoolean("IS_LOGGED_IN",loggedInMode);
+        msharedPreferences.edit().putBoolean("IS_LOGGED_IN",loggedInMode).apply();
     }
     public Boolean getLoggedInMode(){
         return msharedPreferences.getBoolean("IS_LOGGED_IN",false);
     }
     public void putToken(String token){
-        msharedPreferences.edit().putString(MY_TOKEN,token);
+        msharedPreferences.edit().putString(MY_TOKEN,token).apply();
     }
     public String getToken(){
         return msharedPreferences.getString(MY_TOKEN,null);
