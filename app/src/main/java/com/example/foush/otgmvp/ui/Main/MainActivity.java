@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DataSetActivity.class);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             case R.id.buttonProfile:
                 Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(intent);
-                finish();
+
                 break;
             case R.id.buttonBalance:
                 intent = new Intent(MainActivity.this, BalanceActivity.class);

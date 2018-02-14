@@ -7,9 +7,11 @@ import android.support.annotation.Nullable;
 import com.example.foush.otgmvp.*;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
+import com.example.foush.otgmvp.ui.Base.MvpView;
 import com.example.foush.otgmvp.ui.Login.LoginActivity;
-import com.example.foush.otgmvp.ui.Splash.*;
 import com.example.foush.otgmvp.ui.Main.MainActivity;
+import com.example.foush.otgmvp.ui.Settings.SettingsMvpView;
+import com.example.foush.otgmvp.ui.Settings.SettingsPresenter;
 
 /**
  * Created by foush on 09/02/18.
