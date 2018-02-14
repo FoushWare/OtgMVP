@@ -17,6 +17,7 @@ import com.example.foush.otgmvp.ui.Balance.BalanceActivity;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Dataset.DataSetActivity;
 import com.example.foush.otgmvp.ui.Login.LoginPresenter;
+import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 
 import butterknife.BindView;
@@ -87,9 +88,12 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.buttonProfile:
+                Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.buttonBalance:
-                Intent intent=new Intent(MainActivity.this, BalanceActivity.class);
+                intent = new Intent(MainActivity.this, BalanceActivity.class);
                 startActivity(intent);
                 finish();
                 break;
