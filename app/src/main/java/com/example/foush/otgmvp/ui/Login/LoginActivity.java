@@ -141,7 +141,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
                     // Do your success stuff...
                     Toast.makeText(LoginActivity.this, ""+response.body().msg , Toast.LENGTH_SHORT).show();
                     //save the user's session and save token to the session
-                    mLoginPresenter.startSignIn(user.email, response.body().token);
+                    mLoginPresenter.startSignIn(user, response.body().token);
 
 
 

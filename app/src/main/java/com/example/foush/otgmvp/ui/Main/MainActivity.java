@@ -11,18 +11,30 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.foush.otgmvp.R;
+import com.example.foush.otgmvp.data.ApiHelper;
 import com.example.foush.otgmvp.data.DataManager;
+import com.example.foush.otgmvp.data.ServiceGenerator;
+import com.example.foush.otgmvp.models.Responses.MainResponse;
+import com.example.foush.otgmvp.models.Responses.ProfileResponse;
 import com.example.foush.otgmvp.otgMvp;
 import com.example.foush.otgmvp.ui.Balance.BalanceActivity;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Dataset.DataSetActivity;
 import com.example.foush.otgmvp.ui.Login.LoginPresenter;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
+import com.example.foush.otgmvp.ui.Settings.SettingsActivity;
+import com.example.foush.otgmvp.ui.Splash.SplashActivity;
 import com.flipboard.bottomsheet.BottomSheetLayout;
+
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by foush on 09/02/18.
@@ -95,13 +107,42 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             case R.id.buttonBalance:
                 intent = new Intent(MainActivity.this, BalanceActivity.class);
                 startActivity(intent);
-                finish();
+                
                 break;
             case R.id.buttonHistory:
                 break;
             case R.id.buttonSearch:
                 break;
             case R.id.buttonSignOut:
+                ApiHelper apiHelper = ServiceGenerator.createService(ApiHelper.class);
+                Call<MainResponse> call = apiHelper.Logout(mDataManager.getToken());
+                call.enqueue(new Callback<MainResponse>() {
+                    @Override
+                    public void onResponse(Call<MainResponse> call, Response<MainResponse> response) {
+                        if (response.isSuccessful()) {
+                            mDataManager.LogoutSession();
+                            Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+                            startActivity(intent);
+                            finish();
+
+                        } else {
+                            try {
+                                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                Toast.makeText(MainActivity.this, jObjError.getString("msg"), Toast.LENGTH_LONG).show();
+                            } catch (Exception e) {
+                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+
+
+                    @Override
+                    public void onFailure(Call<MainResponse> call, Throwable t) {
+
+                    }
+                });
+
+
                 break;
             case R.id.buttonShopping:
                 break;

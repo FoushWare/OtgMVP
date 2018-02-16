@@ -1,6 +1,7 @@
 package com.example.foush.otgmvp.ui.Login;
 
 import com.example.foush.otgmvp.data.DataManager;
+import com.example.foush.otgmvp.models.User;
 import com.example.foush.otgmvp.ui.Base.BasePresenter;
 
 /**
@@ -14,8 +15,9 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V> imp
 
 
     @Override
-    public void startSignIn(String email,String token) {
-        getDataManager().saveEmail(email);
+    public void startSignIn(User user, String token) {
+        getDataManager().saveEmail(user.email);
+        getDataManager().savePassword(user.password);
         getDataManager().setLoggedIn();
         getDataManager().saveToken(token);
         getMvpView().openMainActivity();

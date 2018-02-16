@@ -13,6 +13,8 @@ public class SharedPrefsHelper {
     public static final String MY_PREFS="MY_APP";
     public static final String MY_EMAIL="EMAIL";
     public static final String MY_TOKEN="TOKEN";
+    public static final String MY_PASSWORD="PASSWORD";
+
 
 
 
@@ -44,7 +46,12 @@ public class SharedPrefsHelper {
         return msharedPreferences.getString(MY_TOKEN,null);
     }
 
-
+    public void putPassword(String password){
+        msharedPreferences.edit().putString(MY_PASSWORD,password).apply();
+    }
+    public String getPassword(){
+        return msharedPreferences.getString(MY_PASSWORD,null);
+    }
 
 
 

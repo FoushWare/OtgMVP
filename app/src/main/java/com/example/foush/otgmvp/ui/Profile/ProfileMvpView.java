@@ -1,5 +1,6 @@
 package com.example.foush.otgmvp.ui.Profile;
 
+import com.example.foush.otgmvp.models.User;
 import com.example.foush.otgmvp.ui.Base.MvpView;
 
 /**
@@ -7,5 +8,13 @@ import com.example.foush.otgmvp.ui.Base.MvpView;
  */
 
 public interface ProfileMvpView extends MvpView {
+    void initView();
+    void ButtonEvents();
+    void RequestUiInfo();
+    void setUiValues(User user,String picStatus);
+    void progress();
+
+
+
 
 }

@@ -1,11 +1,14 @@
 package com.example.foush.otgmvp.data;
 import com.example.foush.otgmvp.models.Responses.BalanceResponse;
 import com.example.foush.otgmvp.models.Responses.MainResponse;
+import com.example.foush.otgmvp.models.Responses.ProfileResponse;
 import com.example.foush.otgmvp.models.Responses.SignInResponse;
 import com.example.foush.otgmvp.models.User;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -28,10 +31,27 @@ public interface ApiHelper {
             @Query("token") String TOKEN,
             @Body String hashcardNumber
     );
+    /**********************************  Profile Activity Part    **************** */
+
+    @GET("api/v1/users/profile")
+    Call<ProfileResponse>GetRequestProfile(
+            @Query("token") String TOKEN
+    );
+    /**********************************  Settings Activity Part    **************** */
+
+    @POST("api/v1/users/update")
+    Call<ProfileResponse>UpdateBasicInfo(@Body User user,
+                                         @Query("token") String TOKEN);
+
+    @POST("api/v1/users/password")
+    Call<ProfileResponse>UpdatePassword(@Body User user,
+                                         @Query("token") String TOKEN);
 
 
+    /**********************************  Logout  Part    **************** */
 
-
+    @GET("api/v1/users/logout")
+    Call<MainResponse>Logout(@Query("token")String TOKEN);
 
 
 }

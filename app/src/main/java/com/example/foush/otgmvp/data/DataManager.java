@@ -33,6 +33,15 @@ public class DataManager {
     public String getToken(){
         return msharedPrefsHelper.getToken();
     }
+    public void savePassword(String password){
+        msharedPrefsHelper.putPassword(password);
+    }
+    public String getPassword(){
+        return msharedPrefsHelper.getPassword();
+    }
+    public void LogoutSession(){
+        msharedPrefsHelper.setLoggedInMode(false);
+    }
 
 
 

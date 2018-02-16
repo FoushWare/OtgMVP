@@ -48,44 +48,38 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        >
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleContentDescription="confirm Password"
+        app:passwordToggleDrawable="@drawable/ic_visibility_black_24dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent">
+
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/passwordtxt"
-            android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Password"
-            android:hint="Password: at least 8 characters"
-            android:padding="5dp" />
-
-
-    </LinearLayout>
-    <LinearLayout
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        >
+        app:passwordToggleContentDescription="confirm Password"
+        app:passwordToggleDrawable="@drawable/ic_visibility_black_24dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/passwordConfirmtxt"
-            android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Password"
-            android:hint="confirm Password"
-            android:padding="5dp" />
-
-
-    </LinearLayout>
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
