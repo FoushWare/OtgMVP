@@ -2,9 +2,8 @@ package com.example.foush.otgmvp.ui.Splash;
 
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.ui.Base.BasePresenter;
-import com.example.foush.otgmvp.ui.Base.MvpPresenter;
-import com.example.foush.otgmvp.ui.Settings.SettingsMvpPresenter;
-import com.example.foush.otgmvp.ui.Settings.SettingsMvpView;
+import com.example.foush.otgmvp.ui.Base.MvpView;
+import com.example.foush.otgmvp.ui.DetailHistory.DetailHistoryMvpView;
 
 /**
  * Created by foush on 09/02/18.

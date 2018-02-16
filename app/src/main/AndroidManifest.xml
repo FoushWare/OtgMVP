@@ -29,7 +29,7 @@
         </provider>
 
         <activity
-            android:name=".ui.Splash.SplashActivity"
+            android:name=".ui.DetailHistory.DetailHistoryActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,16 +43,15 @@
         <activity android:name=".ui.Balance.BalanceActivity" />
         <activity android:name=".ui.Profile.ProfileActivity"
             android:parentActivityName=".ui.Main.MainActivity"
+            />
 
-            >
-        </activity>
-        <activity
-            android:name=".ui.Main.MainActivity"/>
+        <activity android:name=".ui.Splash.SplashActivity"/>
+        <activity android:name=".ui.Main.MainActivity"/>
         <activity
             android:name=".ui.Settings.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".ui.Profile.ProfileActivity"
-            ></activity>
+            />
     </application>
 
 </manifest>

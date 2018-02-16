@@ -1,4 +1,5 @@
 package com.example.foush.otgmvp.data;
+import com.example.foush.otgmvp.models.Item;
 import com.example.foush.otgmvp.models.Responses.BalanceResponse;
 import com.example.foush.otgmvp.models.Responses.MainResponse;
 import com.example.foush.otgmvp.models.Responses.ProfileResponse;
@@ -18,6 +19,8 @@ import retrofit2.http.Query;
  */
 
 public interface ApiHelper {
+
+    /**********************************  SigIN/SignUp Activity Part    **************** */
 
     @POST("api/v1/users/signup")
     Call<MainResponse>SignUpUser(@Body User user);
@@ -52,6 +55,14 @@ public interface ApiHelper {
 
     @GET("api/v1/users/logout")
     Call<MainResponse>Logout(@Query("token")String TOKEN);
+
+    /**********************************  History Part    **************** */
+
+    @GET("api/v1/users/history")
+    Call<Item>UserHistory(
+            @Query("token") String TOKEN
+    );
+
 
 
 }

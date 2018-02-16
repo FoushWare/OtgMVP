@@ -1,7 +1,6 @@
 package com.example.foush.otgmvp.ui.Splash;
 
-import com.example.foush.otgmvp.ui.Base.MvpView;
-import com.example.foush.otgmvp.ui.Settings.SettingsMvpView;
+import com.example.foush.otgmvp.ui.Splash.SplashMvpView;
 
 /**
  * Created by foush on 09/02/18.
