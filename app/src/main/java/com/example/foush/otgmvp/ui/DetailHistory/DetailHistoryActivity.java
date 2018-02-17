@@ -1,23 +1,16 @@
 package com.example.foush.otgmvp.ui.DetailHistory;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Toast;
 
 import com.example.foush.otgmvp.*;
 import com.example.foush.otgmvp.Adapters.DetailHistoryAdapter;
+import com.example.foush.otgmvp.Adapters.HistoryAdapter;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.models.Item;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
-import com.example.foush.otgmvp.ui.Login.LoginActivity;
-import com.example.foush.otgmvp.ui.Main.MainActivity;
-import com.example.foush.otgmvp.ui.Splash.SplashPresenter;
 
 import java.util.ArrayList;
 
@@ -28,13 +21,13 @@ import java.util.ArrayList;
 public class DetailHistoryActivity extends BaseActivity implements DetailHistoryMvpView {
     DataManager mDataManager;
     DetailHistoryPresenter mDetailHistoryPresenter;
-    private ArrayList items;
+    ArrayList<Item.SingleItem> items;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.history_main);
+        setContentView(R.layout.detail_history_main);
 
         mDataManager = ((otgMvp) getApplication()).getmDataManger();
         mDetailHistoryPresenter = new DetailHistoryPresenter(mDataManager);
@@ -52,17 +45,13 @@ public class DetailHistoryActivity extends BaseActivity implements DetailHistory
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        Item item=new Item();
-        item.history.items.name="coffe";
-        item.history.items.price="20 L.E";
-        item.history.items.quantity="3 Item";
-
-
-        items = new ArrayList<Item>();
-        items.add(item);
+        Bundle bundleObject = getIntent().getExtras();
+        items=(ArrayList<Item.SingleItem>)bundleObject.getSerializable("Detail_day_items");
 
         RecyclerView.Adapter adapter = new DetailHistoryAdapter(items);
         recyclerView.setAdapter(adapter);
+
+
 
 
     }

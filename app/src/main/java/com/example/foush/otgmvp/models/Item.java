@@ -14,7 +14,59 @@ public class Item {
     @SerializedName("error")
     public String error;
     @SerializedName("history")
-    public HistoryArray history;
+    public ArrayList<HistoryArray> history;
+
+
+    public static class HistoryArray {
+        public HistoryArray(String id, String date, ArrayList<SingleItem> items) {
+            this.id = id;
+            this.date = date;
+            this.items = items;
+        }
+
+        @SerializedName("id")
+        public String id;
+        @SerializedName("date")
+        public String date;
+        @SerializedName("items")
+        public ArrayList<SingleItem> items;
+    }
+
+
+    public static class SingleItem implements java.io.Serializable {
+        public SingleItem(String name, String price, String quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        @SerializedName("name")
+        public String name;
+        @SerializedName("price")
+        public String price;
+        @SerializedName("quantity")
+        public String quantity;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+   /*
+    @SerializedName("msg")
+    public String msg;
+    @SerializedName("error")
+    public String error;
+    @SerializedName("history")
+    public ArrayList<HistoryArray> history;
 
 
     public class HistoryArray{
@@ -36,4 +88,4 @@ public class Item {
         public String quantity;
 
     }
-}
+    */

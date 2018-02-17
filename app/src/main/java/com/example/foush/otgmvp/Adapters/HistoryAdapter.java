@@ -12,6 +12,7 @@ import com.example.foush.otgmvp.models.Item;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by foush on 16/02/18.
@@ -19,17 +20,23 @@ import butterknife.BindView;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
-   private ArrayList<String>date;
+    @BindView(R.id.tvNumber)
+    TextView shoppingDay;
+    private ArrayList<String> date;
+    private ArrayList<Item.SingleItem> items;
+    private ArrayList<Integer> itemNumberPerDay;
 
-    public HistoryAdapter(ArrayList<String> date) {
+    public HistoryAdapter(ArrayList<String> date, ArrayList<Item.SingleItem> items,ArrayList<Integer> itemNumberPerDay) {
         this.date = date;
+        this.items=items;
+        this.itemNumberPerDay=itemNumberPerDay;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-       /* View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_items_history_row, parent, false);
-        return new ViewHolder(view);*/
-       return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_card_row, parent, false);
+        ButterKnife.bind(this, view);
+        return new ViewHolder(view);
     }
 
     @Override

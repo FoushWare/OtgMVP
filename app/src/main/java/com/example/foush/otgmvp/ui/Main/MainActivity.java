@@ -20,6 +20,8 @@ import com.example.foush.otgmvp.otgMvp;
 import com.example.foush.otgmvp.ui.Balance.BalanceActivity;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Dataset.DataSetActivity;
+import com.example.foush.otgmvp.ui.DetailHistory.DetailHistoryActivity;
+import com.example.foush.otgmvp.ui.History.HistoryActivity;
 import com.example.foush.otgmvp.ui.Login.LoginPresenter;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
 import com.example.foush.otgmvp.ui.Settings.SettingsActivity;
@@ -110,6 +112,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 
                 break;
             case R.id.buttonHistory:
+                intent=new Intent(MainActivity.this, HistoryActivity.class);
+                startActivity(intent);
                 break;
             case R.id.buttonSearch:
                 break;

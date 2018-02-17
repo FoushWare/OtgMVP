@@ -12,6 +12,7 @@ import com.example.foush.otgmvp.models.Item;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by foush on 16/02/18.
@@ -19,32 +20,35 @@ import butterknife.BindView;
 
 public class DetailHistoryAdapter extends RecyclerView.Adapter<DetailHistoryAdapter.ViewHolder> {
 
-    @BindView(R.id.item_history_date)
-    TextView itemHistoryDate;
-    @BindView(R.id.item_history_name)
-    TextView itemHistoryName;
-    @BindView(R.id.item_history_quantity)
-    TextView itemHistoryQuantity;
-    @BindView(R.id.item_history_price)
-    TextView itemHistoryPrice;
-    private ArrayList<Item> items;
 
-    public DetailHistoryAdapter(ArrayList<Item> items) {
+    @BindView(R.id.tvNumber)
+    TextView itemName;
+    @BindView(R.id.price)
+    TextView price;
+    @BindView(R.id.quantity)
+    TextView quantity;
+    private ArrayList<Item.SingleItem> items;
+
+    public DetailHistoryAdapter(ArrayList<Item.SingleItem> items) {
         this.items = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_items_history_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_history_card_row, parent, false);
+        ButterKnife.bind(this, view);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-       //Bind the item {name ,quantity,price}
-        itemHistoryName.setText(items.get(position).history.items.name);
-        itemHistoryPrice.setText(items.get(position).history.items.price);
-        itemHistoryQuantity.setText(items.get(position).history.items.quantity);
+
+        //Bind the item {name ,quantity,price}
+        itemName.setText(items.get(position).name);
+        price.setText(items.get(position).price);
+        quantity.setText(items.get(position).quantity);
+
+
 
     }
 
@@ -57,6 +61,7 @@ public class DetailHistoryAdapter extends RecyclerView.Adapter<DetailHistoryAdap
         public ViewHolder(View itemView) {
             super(itemView);
         }
+
 
     }
 }

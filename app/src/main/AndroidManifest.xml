@@ -29,7 +29,7 @@
         </provider>
 
         <activity
-            android:name=".ui.DetailHistory.DetailHistoryActivity"
+            android:name=".ui.Splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.History.HistoryActivity"/>
         <activity android:name=".ui.Dataset.DataSetActivity" />
         <activity android:name=".ui.Login.LoginActivity" />
         <activity android:name=".ui.Signup.SignUpActivity" />
@@ -44,8 +45,9 @@
         <activity android:name=".ui.Profile.ProfileActivity"
             android:parentActivityName=".ui.Main.MainActivity"
             />
+        <activity
+            android:name=".ui.DetailHistory.DetailHistoryActivity"/>
 
-        <activity android:name=".ui.Splash.SplashActivity"/>
         <activity android:name=".ui.Main.MainActivity"/>
         <activity
             android:name=".ui.Settings.SettingsActivity"
