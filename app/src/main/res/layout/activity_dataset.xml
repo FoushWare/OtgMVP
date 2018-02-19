@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:stretchColumns="*"
     android:weightSum="9" >
+
     <TextView
         android:text="please take 3 photos"
         android:id="@+id/title"
@@ -47,13 +48,11 @@
     </TableRow>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
         >
-
 
 
         <ImageView
@@ -64,6 +63,8 @@
             android:background="#FFFFFF"
             android:contentDescription="@string/imageview_description"
             android:scaleType="fitStart" />
+
+
 
     </LinearLayout>
 

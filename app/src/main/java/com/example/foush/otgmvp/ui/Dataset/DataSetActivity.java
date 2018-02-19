@@ -1,53 +1,19 @@
 package com.example.foush.otgmvp.ui.Dataset;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CheckableImageButton;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-
-import com.example.foush.otgmvp.R;
-import com.example.foush.otgmvp.data.DataManager;
-import com.example.foush.otgmvp.otgMvp;
-import com.example.foush.otgmvp.ui.Base.BaseActivity;
-import com.example.foush.otgmvp.ui.Dataset.DataSetMvpView;
-import com.example.foush.otgmvp.ui.Login.LoginPresenter;
-import com.example.foush.otgmvp.ui.Main.*;
-import com.example.foush.otgmvp.utils.CommonUtils;
-import com.example.foush.otgmvp.utils.*;
-
-import android.Manifest;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
@@ -57,6 +23,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foush.otgmvp.R;
+import com.example.foush.otgmvp.data.ApiHelper;
+import com.example.foush.otgmvp.data.DataManager;
+import com.example.foush.otgmvp.data.ServiceGenerator;
+import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.ui.Base.BaseActivity;
+import com.example.foush.otgmvp.ui.Main.MainActivity;
+import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
+import com.example.foush.otgmvp.utils.BitmapUtils;
+import com.example.foush.otgmvp.utils.CommonUtils;
 import com.glidebitmappool.GlideBitmapFactory;
 import com.glidebitmappool.GlideBitmapPool;
 import com.google.android.gms.vision.Frame;
@@ -70,26 +46,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by foush on 09/02/18.
  */
 
 public class DataSetActivity extends BaseActivity implements DataSetMvpView {
-    ProgressDialog progress ;
+    ProgressDialog progress;
     @BindView(R.id.image_view)
     ImageView imageView;
     @BindView(R.id.title)
@@ -101,6 +74,7 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     @BindView(R.id.pic3)
     Button pic3;
 
+    ProgressDialog dialog;
 
     private static final int flagPic1 = 1;
     private static final int flagPic2 = 2;
@@ -108,6 +82,7 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     private static final String FILE_PROVIDER_AUTHORITY = "com.example.android.fileproviderv4";
     private static final String TAG = MainActivity.class.getSimpleName();
     private static Uri photoURI;
+
     private String mTempPhotoPath;
 
     private Bitmap mResultsBitmap;
@@ -122,10 +97,10 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     private static List<File> filesList = new ArrayList<File>();
     private static int count = 0;
 
-    float x1=0;
-    float x2=0;
-    float y1=0;
-    float y2=0;
+    float x1 = 0;
+    float x2 = 0;
+    float y1 = 0;
+    float y2 = 0;
     DataManager mDataManager;
     DataSetPresenter mDataSetPresenter;
 
@@ -139,13 +114,6 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
         mDataSetPresenter.onAttach(this);
 
         initView();
-
-
-
-
-
-
-
 
 
     }
@@ -187,12 +155,10 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
                 }
                 break;
 
-                default:
-                    Toast.makeText(this, "fuck you", Toast.LENGTH_SHORT).show();
+            default:
+                Toast.makeText(this, "fuck you", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 
 
     /**
@@ -241,22 +207,20 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     @Override
     public void prepareFaceDetector() {
         //Load the Image with it's uri
-         myBitmap = GlideBitmapFactory.decodeFile(mTempPhotoPath);
+        myBitmap = GlideBitmapFactory.decodeFile(mTempPhotoPath);
         //imageView.setImageBitmap(myBitmap);
 
         //create a paint object for drawing with
-         myRectPaint = new Paint();
+        myRectPaint = new Paint();
         myRectPaint.setStrokeWidth(5);
         myRectPaint.setColor(Color.RED);
         myRectPaint.setStyle(Paint.Style.STROKE);
-
 
 
         //create a canvas object for drawing on
         tempBitmap = Bitmap.createBitmap(myBitmap.getWidth(), myBitmap.getHeight(), Bitmap.Config.RGB_565);
         tempCanvas = new Canvas(tempBitmap);
         tempCanvas.drawBitmap(myBitmap, 0, 0, null);
-
 
 
     }
@@ -266,9 +230,9 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
 /**
  * Method for processing the captured image and setting it to the ImageView.
  */
-            prepareFaceDetector();
+        prepareFaceDetector();
 
-   //create the face detector
+        //create the face detector
         FaceDetector faceDetector = new
                 FaceDetector.Builder(getApplicationContext()).setTrackingEnabled(false)
                 .build();
@@ -279,45 +243,40 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
         }
         //Detect faces
         //Draw Rectangles on the faces
-            //Detect the Faces
-            Frame frame = new Frame.Builder().setBitmap(myBitmap).build();
-            SparseArray<Face> faces = faceDetector.detect(frame);
+        //Detect the Faces
+        Frame frame = new Frame.Builder().setBitmap(myBitmap).build();
+        SparseArray<Face> faces = faceDetector.detect(frame);
 
-            //No faces in the picture
-            if (faces.size() == 0) {
-                Toast.makeText(this, "No faces detected Please take the picture again", Toast.LENGTH_LONG).show();
-                noFace(flag);
+        //No faces in the picture
+        if (faces.size() == 0) {
+            Toast.makeText(this, "No faces detected Please take the picture again", Toast.LENGTH_LONG).show();
+            noFace(flag);
 
-            } else {
-                /**if there is a face in the image*/
+        } else {
+            /**if there is a face in the image*/
 
-                //Draw Rectangles on the Faces
-                for (int i = 0; i < faces.size(); i++) {
-                    Face thisFace = faces.valueAt(i);
-                    x1 = thisFace.getPosition().x;
-                    y1 = thisFace.getPosition().y;
-                    x2 = x1 + thisFace.getWidth();
-                    y2 = y1 + thisFace.getHeight();
+            //Draw Rectangles on the Faces
+            for (int i = 0; i < faces.size(); i++) {
+                Face thisFace = faces.valueAt(i);
+                x1 = thisFace.getPosition().x;
+                y1 = thisFace.getPosition().y;
+                x2 = x1 + thisFace.getWidth();
+                y2 = y1 + thisFace.getHeight();
 
-                    tempCanvas.drawRoundRect(new RectF(x1, y1, x2, y2), 2, 2, myRectPaint);
-
-                }
-                //crop the image to get only the image of the user
-                Bitmap croppedBitmap = Bitmap.createBitmap(tempBitmap,(int)x1,(int) y1,(int)x2-(int)x1,(int)y2-(int)y1);
-
-                imageView.setImageDrawable(new BitmapDrawable(getResources(), croppedBitmap));
-                //Presenter role
-
-                mDataSetPresenter.savingAndZipping(mTempPhotoPath,croppedBitmap,flag,count);
-
-
-
-
-
-
+                tempCanvas.drawRoundRect(new RectF(x1, y1, x2, y2), 2, 2, myRectPaint);
 
             }
+            //crop the image to get only the image of the user
+            Bitmap croppedBitmap = Bitmap.createBitmap(tempBitmap, (int) x1, (int) y1, (int) x2 - (int) x1, (int) y2 - (int) y1);
+
+            imageView.setImageDrawable(new BitmapDrawable(getResources(), croppedBitmap));
+            //Presenter role
+
+            mDataSetPresenter.savingAndZipping(mTempPhotoPath, croppedBitmap, flag, count);
+
+
         }
+    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // If the image capture activity was called and was successful
@@ -415,15 +374,88 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
     @Override
     public void userZipPhotos() {
 //zip all the photos in the file
-        ZipUtil.pack(new File(String.valueOf(BitmapUtils.storageDir)), new File(String.valueOf(BitmapUtils.storageDir)+".zip"));
+        ZipUtil.pack(new File(String.valueOf(BitmapUtils.storageDir)), new File(String.valueOf(BitmapUtils.storageDir) + ".zip"));
         // ZipUtil.unexplode(new File( BitmapUtils.storageDir + ".zip"));
         // write function to send the ziped file to the server [moustafa]
-        Log.d(TAG, "uploading zip file: welcome to the server  zip path is "+BitmapUtils.storageDir + ".zip");
+        Log.d(TAG, "uploading zip file: welcome to the server  zip path is " + BitmapUtils.storageDir + ".zip");
+       uploadZipFile(BitmapUtils.storageDir + ".zip");
+
+
     }
 
 
     @Override
     public void uploadZipFile(final String zipFile) {
+        Log.d(TAG, "uploadZipFile: can't upload the zip file");
 
+        //redirect to my third_party script base Url
+        ServiceGenerator.changeApiBaseUrl("http://ahmedfouad.esy.es/computerVision/");
+
+
+        // create upload service client
+        ApiHelper apiHelper = ServiceGenerator.createService(ApiHelper.class);
+
+        //get the actual file by the  url
+        File file = new File(zipFile);
+
+        // create RequestBody instance from file
+        RequestBody requestFile =
+                RequestBody.create(
+                        MediaType.parse("application/zip"),
+                        file
+                );
+
+
+        // MultipartBody.Part is used to send also the actual file name
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("zipFile", file.getName(), requestFile);
+
+
+        // add another part within the multipart request
+        String descriptionString = "hello, this is description speaking";
+        RequestBody description =
+                RequestBody.create(
+                        MultipartBody.FORM, descriptionString);
+
+        progress();
+
+        // finally, execute the request
+
+        Call<ResponseBody> call = apiHelper.upload(description, body);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                dialog.dismiss();
+                Intent intent=new Intent(DataSetActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                Log.v("Upload", "success");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Upload error:", t.getMessage());
+            }
+        });
+
+
+    }
+
+    private String getMimeType(String path) {
+
+        String extension = MimeTypeMap.getFileExtensionFromUrl(path);
+
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+    }
+
+
+
+    public void progress(){
+
+        dialog = new ProgressDialog(DataSetActivity.this); // this = YourActivity
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setMessage("Loading. Please wait...");
+        dialog.setIndeterminate(true);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
     }
 }
