@@ -14,6 +14,9 @@ public class SharedPrefsHelper {
     public static final String MY_EMAIL="EMAIL";
     public static final String MY_TOKEN="TOKEN";
     public static final String MY_PASSWORD="PASSWORD";
+    public static final String MY_FIREBASE_TOKEN="FIREBASE_TOKEN";
+    public static final String MY_QR="MY_QR_PATH";
+
 
 
 
@@ -53,7 +56,22 @@ public class SharedPrefsHelper {
         return msharedPreferences.getString(MY_PASSWORD,null);
     }
 
+    /**FireBase Token*/
 
+    public void putFireBaseToken(String token){
+        msharedPreferences.edit().putString(MY_FIREBASE_TOKEN,token).apply();
+    }
+    public String getFireBaseToken(){
+        return msharedPreferences.getString(MY_FIREBASE_TOKEN,null);
+    }
+
+
+    public void putQR(String path){
+        msharedPreferences.edit().putString(MY_QR,path).apply();
+    }
+    public String getQR(){
+        return msharedPreferences.getString(MY_QR,null);
+    }
 
 
 

@@ -5,12 +5,16 @@ import com.example.foush.otgmvp.models.Responses.MainResponse;
 import com.example.foush.otgmvp.models.Responses.ProfileResponse;
 import com.example.foush.otgmvp.models.Responses.SignInResponse;
 import com.example.foush.otgmvp.models.User;
+import com.example.foush.otgmvp.models.XMLString;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -79,7 +83,14 @@ public interface ApiHelper {
             );
 
 
-
+    /********************************** QR   **************** */
+//    @FormUrlEncoded
+//    @POST("api/v1/orders/registration")
+//    @AnnotatedConverterFactory.Xml
+//    Call<String>getQR(
+//            @Query("token") String TOKEN,
+//            @Field("firebase_token") String FirebaseToken
+//    );
 
 
 

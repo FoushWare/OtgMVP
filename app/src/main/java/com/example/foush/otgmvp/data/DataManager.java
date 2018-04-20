@@ -43,7 +43,22 @@ public class DataManager {
         msharedPrefsHelper.setLoggedInMode(false);
     }
 
+/** Firebase Token*/
 
+
+    public void saveFireBaseToken(String token){
+    msharedPrefsHelper.putFireBaseToken(token);
+}
+    public String getFireBaseToken(){
+        return msharedPrefsHelper.getFireBaseToken();
+    }
+
+    public void saveQR_Path(String path){
+    msharedPrefsHelper.putQR(path);
+}
+    public String getQR_Path(){
+        return msharedPrefsHelper.getQR();
+    }
 
 
 

@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         applicationId "com.example.foush.otgmvp"
         minSdkVersion 19
@@ -70,6 +72,8 @@ dependencies {
     compile 'com.amitshekhar.android:glide-bitmap-pool:0.0.1'
 //okhttp
 
+    // Retrofit XML converter (Simple)
+    compile 'com.squareup.retrofit2:converter-simplexml:2.3.0'
 }
 // Apply the Google Services plugin. Make sure to add the google-services.json file in the app
 // folder. You download it from the Firebase console

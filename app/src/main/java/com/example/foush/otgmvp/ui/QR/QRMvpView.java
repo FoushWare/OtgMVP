@@ -8,4 +8,8 @@ import com.example.foush.otgmvp.ui.Base.MvpView;
 
 public interface QRMvpView extends MvpView {
 
+    void initView();
+    void getFirebaseToken();
+    void LoadQR(String QR);
+
 }

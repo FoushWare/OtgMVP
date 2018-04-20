@@ -54,6 +54,7 @@
             android:label="@string/title_activity_settings"
             android:parentActivityName=".ui.Profile.ProfileActivity"
             />
+        <activity android:name=".ui.QR.QRActivity" />
     </application>
 
 </manifest>

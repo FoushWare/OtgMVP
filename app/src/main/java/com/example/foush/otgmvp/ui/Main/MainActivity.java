@@ -24,6 +24,7 @@ import com.example.foush.otgmvp.ui.DetailHistory.DetailHistoryActivity;
 import com.example.foush.otgmvp.ui.History.HistoryActivity;
 import com.example.foush.otgmvp.ui.Login.LoginPresenter;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
+import com.example.foush.otgmvp.ui.QR.QRActivity;
 import com.example.foush.otgmvp.ui.Settings.SettingsActivity;
 import com.example.foush.otgmvp.ui.Splash.SplashActivity;
 import com.flipboard.bottomsheet.BottomSheetLayout;
@@ -153,6 +154,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             case R.id.btns:
                 break;
             case R.id.QRBtn:
+                intent=new Intent(MainActivity.this, QRActivity.class);
+                startActivity(intent);
                 break;
             case R.id.bottomsheet:
                 break;
