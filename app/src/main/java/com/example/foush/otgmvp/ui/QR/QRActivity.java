@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -55,19 +56,20 @@ public class QRActivity extends BaseActivity implements QRMvpView {
         if (count==0) {
             mQRPresenter.StoreFirebaseToken(FirebaseInstanceId.getInstance().getToken());
         }
+        QRImage = (WebView) findViewById(R.id.QRImage);
+        Log.d(TAG,"firebase token  "+mDataManager.getFireBaseToken());
+        mQRPresenter.RequestOrderRegistration(mDataManager.getFireBaseToken());
+        QR= new File(Environment.getExternalStorageDirectory() + "/otgMvp/QRcode.html");
+        Log.d(TAG, "QR Activity: "+Environment.getExternalStorageDirectory() + "/otgMvp/QRcode.html");
 
-         mQRPresenter.RequestOrderRegistration(mDataManager.getFireBaseToken());
-        QR= new File(mDataManager.getQR_Path());
-        Log.d(TAG, "QR Activity: "+mDataManager.getQR_Path());
 
-
-       QRImage.loadUrl(Uri.fromFile(QR).toString());
+        QRImage.loadUrl("file:///"+QR.getAbsolutePath());
 
 
     }
     @Override
     public void initView() {
-        QRImage = (WebView) findViewById(R.id.QRImage);
+//        QRImage = (WebView) findViewById(R.id.QRImage);
 
     }
 

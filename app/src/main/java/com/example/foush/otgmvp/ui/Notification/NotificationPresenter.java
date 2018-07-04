@@ -1,27 +1,17 @@
-package com.example.foush.otgmvp.ui.Login;
+package com.example.foush.otgmvp.ui.Notification;
 
 import com.example.foush.otgmvp.data.DataManager;
-import com.example.foush.otgmvp.models.User;
 import com.example.foush.otgmvp.ui.Base.BasePresenter;
 
 /**
  * Created by foush on 09/02/18.
  */
 
-public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V> implements LoginMvpPresenter<V> {
-    public LoginPresenter(DataManager dataManager) {
+public class NotificationPresenter<V extends NotificationMvpView> extends BasePresenter<V> implements NotificationMvpPresenter<V> {
+    public NotificationPresenter(DataManager dataManager) {
         super(dataManager);
     }
 
 
-    @Override
-    public void startSignIn(User user, String token) {
-        getDataManager().saveEmail(user.email);
-        getDataManager().savePassword(user.password);
-        getDataManager().setLoggedIn();
-        getDataManager().saveToken(token);
-        getMvpView().openMainActivity();
 
-
-    }
 }

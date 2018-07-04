@@ -1,5 +1,9 @@
 package com.example.foush.otgmvp.data;
 
+import android.nfc.Tag;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.example.foush.otgmvp.data.SharedPrefsHelper;
 
 /**

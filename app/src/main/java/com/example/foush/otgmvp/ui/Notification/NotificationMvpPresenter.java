@@ -1,4 +1,4 @@
-package com.example.foush.otgmvp.ui.Login;
+package com.example.foush.otgmvp.ui.Notification;
 
 import com.example.foush.otgmvp.models.User;
 
@@ -6,6 +6,6 @@ import com.example.foush.otgmvp.models.User;
  * Created by foush on 09/02/18.
  */
 
-public interface LoginMvpPresenter<V extends LoginMvpView> {
-    void startSignIn(User user, String token);
+public interface NotificationMvpPresenter<V extends NotificationMvpView> {
+
 }

@@ -123,7 +123,8 @@ public class QRPresenter<V extends QRMvpView> extends BasePresenter<V> implement
 
 
             QRIMAGE=saveQROnSD(json);
-            getDataManager().saveQR_Path(QRIMAGE+"");
+
+            getDataManager().saveQR_Path(""+QRIMAGE);
             Log.d(TAG, "onPostExecute: "+QRIMAGE);
             dialog.dismiss();
 
@@ -138,14 +139,16 @@ public class QRPresenter<V extends QRMvpView> extends BasePresenter<V> implement
             if (!root.exists()) {
                 root.mkdirs();
             }
+
             File gpxfile = new File(root, "QRcode.html");
             FileWriter writer = new FileWriter(gpxfile);
             writer.append(code);
             writer.flush();
             writer.close();
+            //QRImage.loadUrl(Uri.fromFile(gpxfile).toString());
+            Log.d(TAG,"gpxfile"+gpxfile);
             return gpxfile;
 
-            //QRImage.loadUrl(Uri.fromFile(gpxfile).toString());
 
         }
         catch(IOException e)

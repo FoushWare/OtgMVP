@@ -2,8 +2,10 @@ package com.example.foush.otgmvp.ui.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -50,12 +52,12 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     LinearLayout buttonBalance;
     @BindView(R.id.buttonHistory)
     LinearLayout buttonHistory;
-    @BindView(R.id.buttonSearch)
-    LinearLayout buttonSearch;
+//    @BindView(R.id.buttonSearch)
+//    LinearLayout buttonSearch;
     @BindView(R.id.buttonSignOut)
     LinearLayout buttonSignOut;
-    @BindView(R.id.buttonShopping)
-    LinearLayout buttonShopping;
+//    @BindView(R.id.buttonShopping)
+//    LinearLayout buttonShopping;
     @BindView(R.id.btns)
     LinearLayout btns;
     @BindView(R.id.QRBtn)
@@ -65,6 +67,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     DataManager mDataManager;
     MainPresenter mMainPresenter;
+    BottomSheetLayout bottomSheet;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,32 +78,42 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         mDataManager = ((otgMvp) getApplication()).getmDataManger();
         mMainPresenter = new MainPresenter(mDataManager);
         mMainPresenter.onAttach(this);
-
-
-
-        ButterKnife.bind(this);
-        BottomSheetLayout bottomSheet = (BottomSheetLayout) findViewById(R.id.bottomsheet);
-        bottomSheet.showWithSheetView(LayoutInflater.from(MainActivity.this).inflate(R.layout.my_sheet_layout, bottomSheet, false));
-
-
-        Button button = (Button) findViewById(R.id.take_pics);
-        button.setOnClickListener(new View.OnClickListener() {
+        bottomSheet = (BottomSheetLayout) findViewById(R.id.bottomsheet);
+        FloatingActionButton scanQR =  findViewById(R.id.QRBtn);
+        scanQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DataSetActivity.class);
-                startActivity(intent);
-
+                bottomSheet.showWithSheetView(LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_view, bottomSheet, false));
             }
         });
 
 
-        Toast.makeText(this, ""+mDataManager.getToken(), Toast.LENGTH_LONG).show();
-        Toast.makeText(this, ""+mDataManager.getEmail(), Toast.LENGTH_LONG).show();
+
+        ButterKnife.bind(this);
+//        BottomSheetLayout bottomSheet = (BottomSheetLayout) findViewById(R.id.bottomsheet);
+//        bottomSheet.showWithSheetView(LayoutInflater.from(MainActivity.this).inflate(R.layout.my_sheet_layout, bottomSheet, false));
+
+
+//        Button button = (Button) findViewById(R.id.take_pics);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, DataSetActivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
+
+
+//        Toast.makeText(this, ""+mDataManager.getToken(), Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, ""+mDataManager.getEmail(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, ""+ Environment.getExternalStorageDirectory(), Toast.LENGTH_LONG).show();
+
 
 
     }
 
-    @OnClick({R.id.buttonProfile, R.id.buttonBalance, R.id.buttonHistory, R.id.buttonSearch, R.id.buttonSignOut, R.id.buttonShopping, R.id.btns, R.id.QRBtn, R.id.bottomsheet})
+    @OnClick({R.id.buttonProfile, R.id.buttonBalance, R.id.buttonHistory, R.id.buttonSignOut, R.id.btns, R.id.QRBtn, R.id.bottomsheet})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.buttonProfile:
@@ -116,8 +130,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 intent=new Intent(MainActivity.this, HistoryActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.buttonSearch:
-                break;
+//            case R.id.buttonSearch:
+//                break;
             case R.id.buttonSignOut:
                 ApiHelper apiHelper = ServiceGenerator.createService(ApiHelper.class);
                 Call<MainResponse> call = apiHelper.Logout(mDataManager.getToken());
@@ -149,8 +163,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
 
                 break;
-            case R.id.buttonShopping:
-                break;
+//            case R.id.buttonShopping:
+//                break;
             case R.id.btns:
                 break;
             case R.id.QRBtn:
