@@ -18,14 +18,19 @@
         android:background="@drawable/history_card"
         android:padding="@dimen/activity_horizontal_margin">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/popcorn"
+            android:id="@+id/imageView2" />
 
         <TextView
             android:id="@+id/tvNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_toRightOf="@id/ivContactItem"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/imageView2"
             android:text="item name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -33,10 +38,9 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvNumber"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="8dp"
+            android:layout_alignStart="@+id/tvNumber"
+            android:layout_below="@+id/tvNumber"
+            android:layout_marginStart="23dp"
             android:text="Price"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 

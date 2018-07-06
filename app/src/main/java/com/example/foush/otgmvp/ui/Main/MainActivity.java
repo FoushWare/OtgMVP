@@ -182,12 +182,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             case R.id.btns:
                 break;
             case R.id.QRBtn:
-                intent=new Intent(MainActivity.this, NotificationActivity.class);
+                intent=new Intent(MainActivity.this, QRActivity.class);
                 startActivity(intent);
-
-
-//                intent=new Intent(MainActivity.this, QRActivity.class);
-//                startActivity(intent);
                 break;
             case R.id.bottomsheet:
                 break;

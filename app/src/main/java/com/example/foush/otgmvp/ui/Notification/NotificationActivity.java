@@ -54,7 +54,7 @@ public class NotificationActivity  extends BaseActivity  implements Notification
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.transactions_main);
         mDataManager = ((otgMvp) getApplication()).getmDataManger();
         mNotificationPresenter = new NotificationPresenter(mDataManager);
         mNotificationPresenter.onAttach(this);
