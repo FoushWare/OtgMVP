@@ -56,6 +56,7 @@ public class QRPresenter<V extends QRMvpView> extends BasePresenter<V> implement
     public void StoreFirebaseToken(String firebasetoken) {
         getDataManager().saveFireBaseToken(firebasetoken);
        // RequestOrderRegistration(firebasetoken);
+
     }
 
     @Override

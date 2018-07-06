@@ -64,6 +64,7 @@ public class QRActivity extends BaseActivity implements QRMvpView {
 
 
         QRImage.loadUrl("file:///"+QR.getAbsolutePath());
+        Log.d(TAG, "App Token: "+mDataManager.getToken());
 
 
     }

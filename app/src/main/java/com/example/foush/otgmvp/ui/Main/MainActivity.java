@@ -1,10 +1,12 @@
 package com.example.foush.otgmvp.ui.Main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,7 @@ import com.example.foush.otgmvp.ui.Dataset.DataSetActivity;
 import com.example.foush.otgmvp.ui.DetailHistory.DetailHistoryActivity;
 import com.example.foush.otgmvp.ui.History.HistoryActivity;
 import com.example.foush.otgmvp.ui.Login.LoginPresenter;
+import com.example.foush.otgmvp.ui.Notification.NotificationActivity;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
 import com.example.foush.otgmvp.ui.QR.QRActivity;
 import com.example.foush.otgmvp.ui.Settings.SettingsActivity;
@@ -40,6 +43,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.foush.otgmvp.ui.Notification.MyFCMService.MY_PREFS_NAME;
 
 /**
  * Created by foush on 09/02/18.
@@ -109,6 +114,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 //        Toast.makeText(this, ""+mDataManager.getEmail(), Toast.LENGTH_LONG).show();
         Toast.makeText(this, ""+ Environment.getExternalStorageDirectory(), Toast.LENGTH_LONG).show();
 
+//        Log.d("test saved order id", "orderID: "+mDataManager.getOrderID());
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+
+            int orderID = prefs.getInt("orderID", 0); //0 is the default value.
+
+//        Log.d("test saved order id", "orderID: "+orderID);
+
+            mDataManager.saveOrderID(orderID);
 
 
     }
@@ -168,8 +182,12 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             case R.id.btns:
                 break;
             case R.id.QRBtn:
-                intent=new Intent(MainActivity.this, QRActivity.class);
+                intent=new Intent(MainActivity.this, NotificationActivity.class);
                 startActivity(intent);
+
+
+//                intent=new Intent(MainActivity.this, QRActivity.class);
+//                startActivity(intent);
                 break;
             case R.id.bottomsheet:
                 break;

@@ -16,6 +16,7 @@ public class SharedPrefsHelper {
     public static final String MY_PASSWORD="PASSWORD";
     public static final String MY_FIREBASE_TOKEN="FIREBASE_TOKEN";
     public static final String MY_QR="MY_QR_PATH";
+    public static final String MY_ORDER_ID="MY_ORDERID";
 
 
 
@@ -71,6 +72,13 @@ public class SharedPrefsHelper {
     }
     public String getQR(){
         return msharedPreferences.getString(MY_QR,null);
+    }
+
+    public void putOrderID(int orderID){
+        msharedPreferences.edit().putInt(MY_ORDER_ID,orderID).apply();
+    }
+    public int getOrderID(){
+        return msharedPreferences.getInt(MY_ORDER_ID,0);
     }
 
 

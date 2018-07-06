@@ -90,11 +90,11 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
             mailtxt.setError("please Enter correct Email");
             return;
         }
-        if (password == null || password.isEmpty()||!CommonUtils.isPasswordlValid(password)) {
-            Toast.makeText(this, "Enter Password", Toast.LENGTH_LONG).show();
-            passwordtxt.setError("Please Enter valid password");
-            return;
-        }
+//        if (password == null || password.isEmpty()||!CommonUtils.isPasswordlValid(password)) {
+//            Toast.makeText(this, "Enter Password", Toast.LENGTH_LONG).show();
+//            passwordtxt.setError("Please Enter valid password");
+//            return;
+//        }
         //make object of the user
         userObject=new User();
         userObject.email=mail;

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.foush.otgmvp.R;
 import com.example.foush.otgmvp.models.Item;
+import com.example.foush.otgmvp.models.orderItem;
 
 import java.util.ArrayList;
 
@@ -18,8 +19,7 @@ import butterknife.ButterKnife;
  * Created by foush on 16/02/18.
  */
 
-
-public class DetailHistoryAdapter extends RecyclerView.Adapter<DetailHistoryAdapter.ViewHolder> {
+public class OrderItemsAdapter extends RecyclerView.Adapter<OrderItemsAdapter.ViewHolder> {
 
 
     @BindView(R.id.tvNumber)
@@ -28,15 +28,15 @@ public class DetailHistoryAdapter extends RecyclerView.Adapter<DetailHistoryAdap
     TextView price;
     @BindView(R.id.quantity)
     TextView quantity;
-    private ArrayList<Item.SingleItem> items;
+    private ArrayList<orderItem.itemsArray> items;
 
-    public DetailHistoryAdapter(ArrayList<Item.SingleItem> items) {
+    public OrderItemsAdapter(ArrayList<orderItem.itemsArray> items) {
         this.items = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_history_card_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_item_card_row, parent, false);
         ButterKnife.bind(this, view);
         return new ViewHolder(view);
     }
@@ -45,9 +45,9 @@ public class DetailHistoryAdapter extends RecyclerView.Adapter<DetailHistoryAdap
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         //Bind the item {name ,quantity,price}
-        itemName.setText(items.get(position).name);
-        price.setText(items.get(position).price);
-        quantity.setText(items.get(position).quantity);
+        itemName.setText(items.get(position).title);
+        price.setText(Float.toString(items.get(position).price));
+        quantity.setText(Integer.toString(items.get(position).quantity));
 
 
 

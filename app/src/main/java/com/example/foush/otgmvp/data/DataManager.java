@@ -64,8 +64,14 @@ public class DataManager {
         return msharedPrefsHelper.getQR();
     }
 
+/**Notification order_id */
+    public void saveOrderID(int order_id){
+        msharedPrefsHelper.putOrderID(order_id);
+    }
 
-
+    public int getOrderID(){
+        return msharedPrefsHelper.getOrderID();
+    }
 
 
 }
