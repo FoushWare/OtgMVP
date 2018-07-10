@@ -11,7 +11,7 @@ import com.example.foush.otgmvp.data.SharedPrefsHelper;
  * Created by foush on 09/02/18.
  */
 
-public class otgMvp extends Application {
+public class otgStore extends Application {
     SharedPrefsHelper  mSharedPrefsHelper;
     DataManager         mDataManger;
 

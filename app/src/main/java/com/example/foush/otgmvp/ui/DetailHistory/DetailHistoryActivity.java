@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.foush.otgmvp.*;
 import com.example.foush.otgmvp.Adapters.DetailHistoryAdapter;
-import com.example.foush.otgmvp.Adapters.HistoryAdapter;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.models.Item;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
@@ -29,7 +28,7 @@ public class DetailHistoryActivity extends BaseActivity implements DetailHistory
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_history_main);
 
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mDetailHistoryPresenter = new DetailHistoryPresenter(mDataManager);
         mDetailHistoryPresenter.onAttach(this);
 

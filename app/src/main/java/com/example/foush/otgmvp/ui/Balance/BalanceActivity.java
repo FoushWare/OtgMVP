@@ -17,9 +17,8 @@ import com.example.foush.otgmvp.data.ApiHelper;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
 import com.example.foush.otgmvp.models.Responses.BalanceResponse;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
-import com.example.foush.otgmvp.ui.Login.LoginActivity;
 
 import org.json.JSONObject;
 
@@ -44,7 +43,7 @@ public class BalanceActivity extends BaseActivity implements BalanceMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance);
 
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mBalancePresenter = new BalancePresenter(mDataManager);
         mBalancePresenter.onAttach(this);
 

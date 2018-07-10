@@ -27,7 +27,7 @@ import com.example.foush.otgmvp.R;
 import com.example.foush.otgmvp.data.ApiHelper;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Main.MainActivity;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
@@ -109,7 +109,7 @@ public class DataSetActivity extends BaseActivity implements DataSetMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dataset);
 
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mDataSetPresenter = new DataSetPresenter(mDataManager);
         mDataSetPresenter.onAttach(this);
 

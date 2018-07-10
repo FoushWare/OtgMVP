@@ -1,7 +1,6 @@
 package com.example.foush.otgmvp.ui.Notification;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,24 +9,16 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.foush.otgmvp.Adapters.HistoryAdapter;
 import com.example.foush.otgmvp.Adapters.OrderItemsAdapter;
 import com.example.foush.otgmvp.R;
 import com.example.foush.otgmvp.data.ApiHelper;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
-import com.example.foush.otgmvp.models.Item;
-import com.example.foush.otgmvp.models.User;
 import com.example.foush.otgmvp.models.orderItem;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
-import com.example.foush.otgmvp.ui.DetailHistory.DetailHistoryActivity;
-import com.example.foush.otgmvp.ui.History.HistoryActivity;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.json.JSONObject;
 
@@ -55,7 +46,7 @@ public class NotificationActivity  extends BaseActivity  implements Notification
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.transactions_main);
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mNotificationPresenter = new NotificationPresenter(mDataManager);
         mNotificationPresenter.onAttach(this);
 

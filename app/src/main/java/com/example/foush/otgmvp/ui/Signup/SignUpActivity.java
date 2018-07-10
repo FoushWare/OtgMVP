@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foush.otgmvp.R;
@@ -16,17 +15,14 @@ import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
 import com.example.foush.otgmvp.models.Responses.MainResponse;
 import com.example.foush.otgmvp.models.User;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Login.LoginActivity;
-import com.example.foush.otgmvp.ui.Main.MainActivity;
 import com.example.foush.otgmvp.utils.CommonUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.json.JSONObject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,7 +47,7 @@ public class SignUpActivity extends BaseActivity implements SignUpMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mSignUpPresenter = new SignUpPresenter(mDataManager);
         mSignUpPresenter.onAttach(this);
 

@@ -13,10 +13,9 @@ import com.example.foush.otgmvp.R;
 import com.example.foush.otgmvp.data.ApiHelper;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
-import com.example.foush.otgmvp.models.Responses.MainResponse;
 import com.example.foush.otgmvp.models.Responses.SignInResponse;
 import com.example.foush.otgmvp.models.User;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Main.MainActivity;
 import com.example.foush.otgmvp.ui.Signup.SignUpActivity;
@@ -25,14 +24,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.json.JSONObject;
 
-import java.lang.annotation.Annotation;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Converter;
 import retrofit2.Response;
 
 /**
@@ -52,7 +45,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mLoginPresenter = new LoginPresenter(mDataManager);
         mLoginPresenter.onAttach(this);
 

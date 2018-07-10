@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -19,18 +17,12 @@ import com.example.foush.otgmvp.data.ApiHelper;
 import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
 import com.example.foush.otgmvp.models.Responses.MainResponse;
-import com.example.foush.otgmvp.models.Responses.ProfileResponse;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Balance.BalanceActivity;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
-import com.example.foush.otgmvp.ui.Dataset.DataSetActivity;
-import com.example.foush.otgmvp.ui.DetailHistory.DetailHistoryActivity;
 import com.example.foush.otgmvp.ui.History.HistoryActivity;
-import com.example.foush.otgmvp.ui.Login.LoginPresenter;
-import com.example.foush.otgmvp.ui.Notification.NotificationActivity;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
 import com.example.foush.otgmvp.ui.QR.QRActivity;
-import com.example.foush.otgmvp.ui.Settings.SettingsActivity;
 import com.example.foush.otgmvp.ui.Splash.SplashActivity;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 
@@ -39,7 +31,6 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -66,7 +57,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @BindView(R.id.btns)
     LinearLayout btns;
     @BindView(R.id.QRBtn)
-    FloatingActionButton QRBtn;
+    ImageView QRBtn;
     @BindView(R.id.bottomsheet)
     BottomSheetLayout bottomsheet;
 
@@ -80,17 +71,17 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mMainPresenter = new MainPresenter(mDataManager);
         mMainPresenter.onAttach(this);
         bottomSheet = (BottomSheetLayout) findViewById(R.id.bottomsheet);
-        FloatingActionButton scanQR =  findViewById(R.id.QRBtn);
-        scanQR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottomSheet.showWithSheetView(LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_view, bottomSheet, false));
-            }
-        });
+//        FloatingActionButton scanQR =  findViewById(R.id.QRBtn);
+//        QRBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                bottomSheet.showWithSheetView(LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_view, bottomSheet, false));
+//            }
+//        });
 
 
 

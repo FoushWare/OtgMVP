@@ -15,7 +15,7 @@ import com.example.foush.otgmvp.data.DataManager;
 import com.example.foush.otgmvp.data.ServiceGenerator;
 import com.example.foush.otgmvp.models.Responses.ProfileResponse;
 import com.example.foush.otgmvp.models.User;
-import com.example.foush.otgmvp.otgMvp;
+import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
 import com.example.foush.otgmvp.ui.Splash.SplashActivity;
@@ -70,7 +70,7 @@ public class SettingsActivity extends BaseActivity implements SettingsMvpView {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
 
-        mDataManager = ((otgMvp) getApplication()).getmDataManger();
+        mDataManager = ((otgStore) getApplication()).getmDataManger();
         mSettingsPresenter = new SettingsPresenter(mDataManager);
         mSettingsPresenter.onAttach(this);
 

@@ -136,7 +136,7 @@ public class QRPresenter<V extends QRMvpView> extends BasePresenter<V> implement
     public File saveQROnSD( String code){
         try
         {
-            File root = new File(Environment.getExternalStorageDirectory(), "otgMvp");
+            File root = new File(Environment.getExternalStorageDirectory(), "otgStore");
             if (!root.exists()) {
                 root.mkdirs();
             }
