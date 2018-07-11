@@ -126,6 +126,11 @@ public class NotificationActivity  extends BaseActivity  implements Notification
                     Items=new ArrayList<>();
 
                     for (int i = 0; i <itemsNumber ; i++) {
+                        Toast.makeText(NotificationActivity.this, "quantity"+response.body().items.get(i).quantity, Toast.LENGTH_SHORT).show();
+                        //remove the item from the notification activity if the quantity is zero
+                        if (response.body().items.get(i).quantity==0){
+                            Items.remove(i);
+                        }
                         Items.add(new orderItem.itemsArray(
                                 response.body().items.get(i).title,
                                 response.body().items.get(i).price,

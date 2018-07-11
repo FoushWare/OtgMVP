@@ -21,6 +21,7 @@ import com.example.foush.otgmvp.otgStore;
 import com.example.foush.otgmvp.ui.Balance.BalanceActivity;
 import com.example.foush.otgmvp.ui.Base.BaseActivity;
 import com.example.foush.otgmvp.ui.History.HistoryActivity;
+import com.example.foush.otgmvp.ui.Notification.NotificationActivity;
 import com.example.foush.otgmvp.ui.Profile.ProfileActivity;
 import com.example.foush.otgmvp.ui.QR.QRActivity;
 import com.example.foush.otgmvp.ui.Splash.SplashActivity;
@@ -48,8 +49,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     LinearLayout buttonBalance;
     @BindView(R.id.buttonHistory)
     LinearLayout buttonHistory;
-//    @BindView(R.id.buttonSearch)
-//    LinearLayout buttonSearch;
+    @BindView(R.id.buttoncart)
+    LinearLayout buttoncart;
     @BindView(R.id.buttonSignOut)
     LinearLayout buttonSignOut;
 //    @BindView(R.id.buttonShopping)
@@ -118,7 +119,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     }
 
-    @OnClick({R.id.buttonProfile, R.id.buttonBalance, R.id.buttonHistory, R.id.buttonSignOut, R.id.btns, R.id.QRBtn, R.id.bottomsheet})
+    @OnClick({R.id.buttoncart,R.id.buttonProfile, R.id.buttonBalance, R.id.buttonHistory, R.id.buttonSignOut, R.id.btns, R.id.QRBtn, R.id.bottomsheet})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.buttonProfile:
@@ -135,8 +136,10 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 intent=new Intent(MainActivity.this, HistoryActivity.class);
                 startActivity(intent);
                 break;
-//            case R.id.buttonSearch:
-//                break;
+            case R.id.buttoncart:
+                intent=new Intent(MainActivity.this, NotificationActivity.class);
+                startActivity(intent);
+                break;
             case R.id.buttonSignOut:
                 ApiHelper apiHelper = ServiceGenerator.createService(ApiHelper.class);
                 Call<MainResponse> call = apiHelper.Logout(mDataManager.getToken());
